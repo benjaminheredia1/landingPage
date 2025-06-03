@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -7,7 +8,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
         rel="stylesheet">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <title>Tienda en Linea</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="assets/css/lightbox.css">
 
 </head>
+
 <body>
     <header class="header-area header-sticky">
         <div class="container">
@@ -39,6 +41,12 @@
                                 </ul>
                             </li>
                             <li class="scroll-to-section"><a href="#explore">Explorar Mas</a></li>
+                            <li class="scroll-to-section">
+                                <a href="javascript:void(0);" id="cart-icon-button" data-toggle="modal"
+                                    data-target="#cartModal">
+                                    <i class="fa fa-shopping-cart"></i> Carrito (<span id="cart-count">0</span>)
+                                </a>
+                            </li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -143,7 +151,6 @@
         </div>
     </div>
 
-    <!-- ***** area hombres *****-->
     <section class="section" id="men">
         <div class="container">
             <div class="row">
@@ -159,21 +166,20 @@
                 <div class="col-lg-12">
                     <div class="men-item-carousel">
                         <div class="owl-men-item owl-carousel">
-                            <div class="item">
+                            <div class="item" data-id="men-01" data-name="Primavera Clásico" data-price="120.00"
+                                data-image="assets/images/men-01.jpg">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <!-- <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li> -->
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a>
-                                            </li>
+                                            <li><a href="javascript:void(0);" class="add-to-cart-btn"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="assets/images/men-01.jpg" alt="">
+                                    <img src="assets/images/men-01.jpg" alt="Primavera Clásico">
                                 </div>
                                 <div class="down-content">
-                                    <h4>Primavera Clásico</h4>
-                                    <span>120.00 Bs.</span>
+                                    <h4 class="product-name">Primavera Clásico</h4>
+                                    <span class="product-price">120.00 Bs.</span>
                                     <ul class="stars">
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
@@ -183,19 +189,20 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="item">
+                            <div class="item" data-id="men-02" data-name="Conjunto de Verano" data-price="90.00"
+                                data-image="assets/images/men-02.jpg">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a>
-                                            </li>
+                                            <li><a href="javascript:void(0);" class="add-to-cart-btn"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="assets/images/men-02.jpg" alt="">
+                                    <img src="assets/images/men-02.jpg" alt="Conjunto de Verano">
                                 </div>
                                 <div class="down-content">
-                                    <h4>Conjunto de Verano</h4>
-                                    <span>90.00 Bs.</span>
+                                    <h4 class="product-name">Conjunto de Verano</h4>
+                                    <span class="product-price">90.00 Bs.</span>
                                     <ul class="stars">
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
@@ -205,19 +212,20 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="item">
+                            <div class="item" data-id="men-03" data-name="Moda Siglo 21" data-price="150.00"
+                                data-image="assets/images/men-03.jpg">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a>
-                                            </li>
+                                            <li><a href="javascript:void(0);" class="add-to-cart-btn"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="assets/images/men-03.jpg" alt="">
+                                    <img src="assets/images/men-03.jpg" alt="Moda Siglo 21">
                                 </div>
                                 <div class="down-content">
-                                    <h4>Moda Siglo 21</h4>
-                                    <span>150.00 Bs.</span>
+                                    <h4 class="product-name">Moda Siglo 21</h4>
+                                    <span class="product-price">150.00 Bs.</span>
                                     <ul class="stars">
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
@@ -227,19 +235,20 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="item">
+                            <div class="item" data-id="men-04" data-name="Primavera Clásico (Otro)" data-price="120.00"
+                                data-image="assets/images/men-01.jpg">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a>
-                                            </li>
+                                            <li><a href="javascript:void(0);" class="add-to-cart-btn"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="assets/images/men-01.jpg" alt="">
+                                    <img src="assets/images/men-01.jpg" alt="Primavera Clásico (Otro)">
                                 </div>
                                 <div class="down-content">
-                                    <h4>Primavera Clásico</h4>
-                                    <span>120.00 Bs.</span>
+                                    <h4 class="product-name">Primavera Clásico (Otro)</h4>
+                                    <span class="product-price">120.00 Bs.</span>
                                     <ul class="stars">
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
@@ -256,7 +265,6 @@
         </div>
     </section>
 
-    <!-- ***** Area mujeres ***** -->
     <section class="section" id="women">
         <div class="container">
             <div class="row">
@@ -272,19 +280,20 @@
                 <div class="col-lg-12">
                     <div class="women-item-carousel">
                         <div class="owl-women-item owl-carousel">
-                            <div class="item">
+                            <div class="item" data-id="women-01" data-name="Clásico Verde" data-price="200.00"
+                                data-image="assets/images/women-01.jpg">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a>
-                                            </li>
+                                            <li><a href="javascript:void(0);" class="add-to-cart-btn"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="assets/images/women-01.jpg" alt="">
+                                    <img src="assets/images/women-01.jpg" alt="Clásico Verde">
                                 </div>
                                 <div class="down-content">
-                                    <h4>Clásico Verde</h4>
-                                    <span>200.00 Bs.</span>
+                                    <h4 class="product-name">Clásico Verde</h4>
+                                    <span class="product-price">200.00 Bs.</span>
                                     <ul class="stars">
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
@@ -293,63 +302,20 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="item">
+                            <div class="item" data-id="women-02" data-name="Clásico Rojo" data-price="200.00"
+                                data-image="assets/images/women-02.jpg">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a>
-                                            </li>
+                                            <li><a href="javascript:void(0);" class="add-to-cart-btn"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="assets/images/women-02.jpg" alt="">
+                                    <img src="assets/images/women-02.jpg" alt="Clásico Rojo">
                                 </div>
                                 <div class="down-content">
-                                    <h4>clásico Rojo</h4>
-                                    <span>200.00 Bs.</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/images/women-03.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Colección de Primavera</h4>
-                                    <span>130.00 Bs.</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/images/women-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Nueva Colección</h4>
-                                    <span>150.00 Bs.</span>
+                                    <h4 class="product-name">Clásico Rojo</h4>
+                                    <span class="product-price">200.00 Bs.</span>
                                     <ul class="stars">
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
@@ -366,7 +332,6 @@
         </div>
     </section>
 
-    <!-- ***** Area kids ***** -->
     <section class="section" id="kids">
         <div class="container">
             <div class="row">
@@ -382,86 +347,42 @@
                 <div class="col-lg-12">
                     <div class="kid-item-carousel">
                         <div class="owl-kid-item owl-carousel">
-                            <div class="item">
+                            <div class="item" data-id="kid-01" data-name="Colección de Escuela" data-price="80.00"
+                                data-image="assets/images/kid-01.jpg">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a>
-                                            </li>
+                                            <li><a href="javascript:void(0);" class="add-to-cart-btn"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="assets/images/kid-01.jpg" alt="">
+                                    <img src="assets/images/kid-01.jpg" alt="Colección de Escuela">
                                 </div>
                                 <div class="down-content">
-                                    <h4>Coleccion de Escuela</h4>
-                                    <span>80.00 Bs.</span>
+                                    <h4 class="product-name">Colección de Escuela</h4>
+                                    <span class="product-price">80.00 Bs.</span>
                                     <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="item">
+                            <div class="item" data-id="kid-02" data-name="Verano Kids" data-price="88.00"
+                                data-image="assets/images/kid-02.jpg">
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a>
-                                            </li>
+                                            <li><a href="javascript:void(0);" class="add-to-cart-btn"><i
+                                                        class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
-                                    <img src="assets/images/kid-02.jpg" alt="">
+                                    <img src="assets/images/kid-02.jpg" alt="Verano Kids">
                                 </div>
                                 <div class="down-content">
-                                    <h4>Verano</h4>
-                                    <span>88.00 Bs.</span>
+                                    <h4 class="product-name">Verano</h4>
+                                    <span class="product-price">88.00 Bs.</span>
                                     <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/images/kid-03.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Clasico</h4>
-                                    <span>30.00 Bs.</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/images/kid-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Primavera Clasico</h4>
-                                    <span>120.00 Bs.</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
@@ -476,7 +397,6 @@
         </div>
     </section>
 
-    <!-- ***** Explorar mas ***** -->
     <section class="section" id="explore">
         <div class="container">
             <div class="row">
@@ -532,7 +452,8 @@
                 <div class="col-lg-12">
                     <div class="section-heading">
                         <h2>Redes Sociales</h2>
-                        <span>Siguenos en nuestras redes sociales para enterarte de nuestras novedades y promociones</span>
+                        <span>Siguenos en nuestras redes sociales para enterarte de nuestras novedades y
+                            promociones</span>
                     </div>
                 </div>
             </div>
@@ -572,6 +493,39 @@
                         <img src="assets/images/instagram-03.jpg" alt="">
                     </div>
                 </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>Estilo</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="assets/images/instagram-04.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>Popular</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="assets/images/instagram-05.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>Ofertas</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="assets/images/instagram-06.jpg" alt="">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -586,10 +540,21 @@
                     </div>
                     <form id="subscribe" action="" method="get">
                         <div class="row">
-                            <div class="col-lg-2">
+                            <div class="col-lg-5 col-sm-12">
                                 <fieldset>
-                                    <button type="submit" id="form-submit" class="main-dark-button"><i
-                                            class="fa fa-paper-plane"><a href="contacto.html">.</a></i></button>
+                                    <input name="name" type="text" id="name" placeholder="Tu nombre..." required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-5 col-sm-12">
+                                <fieldset>
+                                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*"
+                                        placeholder="Tu Email..." required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-2 col-sm-12">
+                                <fieldset>
+                                    <button type="submit" id="form-submit-subscribe" class="main-dark-button"><i
+                                            class="fa fa-paper-plane"></i></button>
                                 </fieldset>
                             </div>
                         </div>
@@ -607,7 +572,8 @@
                             <ul>
                                 <li>Horario de Atención:<br><span>07:30 AM - 7:30 PM</span></li>
                                 <li>Email:<br><span>milestilos@gmail.com</span></li>
-                                <li>Redes Sociales:<br><span><a href="#">Facebook</a>, <a href="#">Instagram</a></span></li>
+                                <li>Redes Sociales:<br><span><a href="#">Facebook</a>, <a href="#">Instagram</a></span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -616,14 +582,97 @@
         </div>
     </div>
 
-    <!-- jQuery -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="first-item">
+                        <div class="logo">
+                            <img src="assets/images/logotienda.jpg" alt="Hexashop logo">
+                        </div>
+                        <ul>
+                            <li><a href="#">Cerca de la plaza 24 de Septiembre, Santa Cruz, Bolivia</a></li>
+                            <li><a href="#">milestilos@gmail.com</a></li>
+                            <li><a href="#">771-022-52</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Compras &amp; Categorías</h4>
+                    <ul>
+                        <li><a href="#men">Compras para Hombres</a></li>
+                        <li><a href="#women">Compras para Mujeres</a></li>
+                        <li><a href="#kids">Compras para Niños</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Enlaces Útiles</h4>
+                    <ul>
+                        <li><a href="index.html">Página Principal</a></li>
+                        <li><a href="conocenos.html">Sobre Nosotros</a></li>
+                        <li><a href="contacto.html">Contáctenos</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Ayuda &amp; Información</h4>
+                    <ul>
+                        <li><a href="#">Ayuda</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Envíos</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-12">
+                    <div class="under-footer">
+                        <p>Copyright © 2025 Mil Estilos Co., Ltd. Todos los derechos reservados.
+                            <br>Diseño: <a href="https://templatemo.com" target="_parent"
+                                title="free css templates">TemplateMo</a>
+                            <br>Distribuido por: <a href="https://themewagon.com" target="_blank"
+                                title="free css templates">ThemeWagon</a>
+                        </p>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Tu Carrito de Compras</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="cart-items-container">
+                        <p class="text-center">Tu carrito está vacío.</p>
+                    </div>
+                    <hr>
+                    <div class="text-right">
+                        <h4>Total: <span id="cart-total">0.00</span> Bs.</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Seguir Comprando</button>
+                    <button type="button" class="btn btn-danger" id="clear-cart-btn">Vaciar Carrito</button>
+                    <button type="button" class="btn btn-primary" id="checkout-btn">Proceder al Pago</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 
-    <!-- Bootstrap -->
     <script src="assets/js/popper.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
 
-    <!-- Plugins -->
     <script src="assets/js/owl-carousel.js"></script>
     <script src="assets/js/accordions.js"></script>
     <script src="assets/js/datepicker.js"></script>
@@ -635,23 +684,31 @@
     <script src="assets/js/lightbox.js"></script>
     <script src="assets/js/isotope.js"></script>
 
-    <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
+    <script src="assets/js/cart.js"></script>
+
 
     <script>
         $(function () {
             var selectedClass = "";
-            $("p").click(function () {
-                selectedClass = $(this).attr("data-rel");
-                $("#portfolio").fadeTo(50, 0.1);
-                $("#portfolio div").not("." + selectedClass).fadeOut();
-                setTimeout(function () {
-                    $("." + selectedClass).fadeIn();
-                    $("#portfolio").fadeTo(50, 1);
-                }, 500);
-
+            // Este script de portfolio parece no usarse en la página principal de productos.
+            // Si lo necesitas para otra sección, asegúrate que #portfolio y los data-rel existan.
+            /*
+            $("p").click(function () { // Considera un selector más específico si es necesario
+                if ($(this).parents('#portfolio').length) { // Solo si el p está dentro de #portfolio
+                    selectedClass = $(this).attr("data-rel");
+                    $("#portfolio").fadeTo(50, 0.1);
+                    $("#portfolio div").not("." + selectedClass).fadeOut();
+                    setTimeout(function () {
+                        $("." + selectedClass).fadeIn();
+                        $("#portfolio").fadeTo(50, 1);
+                    }, 500);
+                }
             });
+            */
         });
     </script>
+
 </body>
+
 </html>
