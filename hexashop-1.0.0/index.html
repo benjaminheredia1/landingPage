@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
-        rel="stylesheet">
-
-    <title>Tienda en Linea</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <title>Mil Estilos Online</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-hexashop.css">
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
-
 </head>
 <body>
     <header class="header-area header-sticky">
@@ -24,7 +21,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <a href="index.html" class="logo">
-                            <img src="assets/images/logotienda.jpg">
+                            <img src="assets/images/logomarca.png">
                         </a>
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Tienda</a></li>
@@ -581,7 +578,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="section-heading">
-                        <h2>Al suscribirte a nuestro boletín puedes obtener un 30% de descuento</h2>
+                        <h2>Al suscribirte puedes obtener un 30% de descuento</h2>
                         <span>Te enviamos los detalles a tu correo electronico.</span>
                     </div>
                     <form id="subscribe" action="" method="get">
@@ -589,7 +586,7 @@
                             <div class="col-lg-2">
                                 <fieldset>
                                     <button type="submit" id="form-submit" class="main-dark-button"><i
-                                            class="fa fa-paper-plane"><a href="contacto.html">.</a></i></button>
+                                            class="fa fa-paper-plane"></i></button>
                                 </fieldset>
                             </div>
                         </div>
@@ -639,18 +636,11 @@
     <script src="assets/js/custom.js"></script>
 
     <script>
-        $(function () {
-            var selectedClass = "";
-            $("p").click(function () {
-                selectedClass = $(this).attr("data-rel");
-                $("#portfolio").fadeTo(50, 0.1);
-                $("#portfolio div").not("." + selectedClass).fadeOut();
-                setTimeout(function () {
-                    $("." + selectedClass).fadeIn();
-                    $("#portfolio").fadeTo(50, 1);
-                }, 500);
-
-            });
+        document.getElementById('form-submit').addEventListener('click', function (e) {
+        e.preventDefault();
+        const form = document.querySelector('form');
+        form.submit();
+        window.location.href = "contacto.html";
         });
     </script>
 </body>
